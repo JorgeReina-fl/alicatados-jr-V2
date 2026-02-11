@@ -1,0 +1,279 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ========================================
+   LENIS SMOOTH SCROLL STYLES
+   ======================================== */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+/* ========================================
+   CSS VARIABLES
+   ======================================== */
+:root {
+  /* Colors from our palette */
+  --color-primary: #606c38;
+  --color-secondary: #283618;
+  --color-cream: #fefae0;
+  --color-accent: #dda15e;
+  --color-copper: #bc6c25;
+
+  --foreground-rgb: 254, 250, 224;
+  --background-rgb: 40, 54, 24;
+}
+
+/* ========================================
+   BASE STYLES
+   ======================================== */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  /* Disable native smooth scroll - Lenis handles it */
+  scroll-behavior: auto;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background-color: rgb(var(--background-rgb));
+  font-family: var(--font-inter);
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-outfit);
+}
+
+/* ========================================
+   CUSTOM SCROLLBAR (Premium Dark Theme)
+   ======================================== */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-accent);
+  border-radius: 0;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-copper);
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-accent) var(--color-secondary);
+}
+
+/* ========================================
+   UTILITY CLASSES
+   ======================================== */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Text gradient effect */
+  .text-gradient {
+    background: linear-gradient(135deg, var(--color-cream) 0%, var(--color-accent) 50%, var(--color-copper) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Video text mask */
+  .video-text-mask {
+    background-size: cover;
+    background-position: center;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+/* ========================================
+   HERO VIDEO MASK ANIMATION
+   ======================================== */
+@keyframes maskShift {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-mask-shift {
+  animation: maskShift 8s ease-in-out infinite;
+  background-size: 200% 200%;
+}
+
+/* ========================================
+   ACCESSIBILITY
+   ======================================== */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  /* Disable Lenis for reduced motion */
+  html.lenis,
+  html.lenis body {
+    scroll-behavior: auto;
+  }
+}
+
+/* ========================================
+   GSAP ANIMATIONS - Initial States
+   ======================================== */
+.gsap-reveal {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.gsap-reveal.is-visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ========================================
+   PINNED SECTION RESPONSIVE
+   ======================================== */
+@media (max-width: 768px) {
+  .pinned-section {
+    flex-direction: column;
+  }
+
+  .pinned-text,
+  .pinned-images {
+    width: 100%;
+  }
+}
+
+/* ========================================
+   NOISE OVERLAY (Cinematic Grain)
+   ======================================== */
+.noise-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0.05;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  animation: noise 0.5s steps(10) infinite;
+}
+
+@keyframes noise {
+
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+
+  10% {
+    transform: translate(-5%, -10%);
+  }
+
+  20% {
+    transform: translate(-15%, 5%);
+  }
+
+  30% {
+    transform: translate(7%, -25%);
+  }
+
+  40% {
+    transform: translate(20%, 25%);
+  }
+
+  50% {
+    transform: translate(-25%, 10%);
+  }
+
+  60% {
+    transform: translate(15%, 5%);
+  }
+
+  70% {
+    transform: translate(0%, 15%);
+  }
+
+  80% {
+    transform: translate(25%, 35%);
+  }
+
+  90% {
+    transform: translate(-10%, 10%);
+  }
+}
+
+/* ========================================
+   3D PROJECT CARDS
+   ======================================== */
+.project-card-3d {
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+.project-card-3d:hover {
+  z-index: 10;
+}
+
+/* ========================================
+   SPLIT TEXT ANIMATION
+   ======================================== */
+.char {
+  display: inline-block;
+  transform-origin: bottom center;
+}
+
+.word {
+  display: inline-block;
+  overflow: hidden;
+}
