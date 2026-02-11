@@ -138,13 +138,6 @@ npm run type-check   # Verificar tipos de TypeScript
 - **Netlify**: Similar a Vercel, excelente para sitios estáticos
 - **Cloudflare Pages**: Gratuito, CDN de Cloudflare
 
-## 📚 Documentación
-
-- `docs/revision-produccion.txt` — Checklist de producción
-- `docs/plataformas-externas.txt` — Plataformas externas recomendadas
-- `docs/animaciones-sitio-web.txt` — Guía de animaciones
-- `docs/animation-guide.md` — Guía técnica de animaciones
-
 ## 📄 Licencia
 
 © 2026 Alicatados JR. Todos los derechos reservados.
