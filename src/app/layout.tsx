@@ -60,12 +60,35 @@ export default function RootLayout({
     return (
         <html lang="es" className={`${inter.variable} ${outfit.variable}`}>
             <body className="font-sans antialiased bg-secondary">
+                {/* Google Tag Manager (noscript) */}
+                <noscript>
+                    <iframe
+                        src="https://www.googletagmanager.com/ns.html?id=GTM-NVGJCTDH"
+                        height="0"
+                        width="0"
+                        style={{ display: 'none', visibility: 'hidden' }}
+                    />
+                </noscript>
+                {/* End Google Tag Manager (noscript) */}
+
                 {/* CookieYes GDPR Cookie Consent Banner */}
                 <Script
                     id="cookieyes"
                     src="https://cdn-cookieyes.com/client_data/44e80544a73ea57497807a68229b2e61/script.js"
                     strategy="beforeInteractive"
                 />
+
+                {/* Google Tag Manager */}
+                <Script id="google-tag-manager" strategy="afterInteractive">
+                    {`
+                        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+                        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+                        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+                        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+                        })(window,document,'script','dataLayer','GTM-NVGJCTDH');
+                    `}
+                </Script>
+                {/* End Google Tag Manager */}
 
                 {/* Google Tag (gtag.js) */}
                 <Script
