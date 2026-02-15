@@ -19,6 +19,7 @@ const outfit = Outfit({
 })
 
 export const metadata: Metadata = {
+    metadataBase: new URL('https://alicatadosjr.com'),
     title: {
         default: 'Alicatados JR - Expertos en Alicatados en Elche',
         template: '%s | Alicatados JR',
@@ -37,6 +38,20 @@ export const metadata: Metadata = {
         'reformas cocinas',
     ],
     authors: [{ name: 'Alicatados JR' }],
+    alternates: {
+        canonical: './',
+    },
+    robots: {
+        index: true,
+        follow: true,
+        googleBot: {
+            index: true,
+            follow: true,
+            'max-video-preview': -1,
+            'max-image-preview': 'large',
+            'max-snippet': -1,
+        },
+    },
     openGraph: {
         type: 'website',
         locale: 'es_ES',
