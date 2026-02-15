@@ -39,6 +39,7 @@ export default function Footer() {
                         <ul className="space-y-4">
                             {[
                                 { name: 'Servicios', href: '/servicios' },
+                                { name: 'Reformas Baños', href: '/reformas-banos-elche' },
                                 { name: 'Proyectos', href: '/proyectos' },
                                 { name: 'Blog', href: '/blog' },
                                 { name: 'Nosotros', href: '/nosotros' },
