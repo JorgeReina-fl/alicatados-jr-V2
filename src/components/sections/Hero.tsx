@@ -3,6 +3,7 @@ import { useRef, useEffect } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { ChevronDown } from 'lucide-react'
+import Image from 'next/image'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -62,15 +63,19 @@ export default function Hero() {
                     muted
                     loop
                     playsInline
-                    poster="/images/img13-CYC9r3W_.jpg"
+                    poster="/images/img13-CYC9r3W_.webp"
                 >
                     {/* <source src="/videos/marble-texture.mp4" type="video/mp4" /> */}
                 </video>
-                <img
-                    ref={imageRef}
-                    src="/images/img13-CYC9r3W_.jpg"
-                    alt=""
+                <Image
+                    ref={imageRef as any}
+                    src="/images/img13-CYC9r3W_.webp"
+                    alt="Fondo corporativo obras de alicatado Elche"
+                    fill
+                    sizes="100vw"
                     className="absolute inset-0 h-full w-full object-cover"
+                    priority
+                    unoptimized
                 />
             </div>
 

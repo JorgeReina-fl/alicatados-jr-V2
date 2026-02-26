@@ -74,6 +74,35 @@ export default function RootLayout({
 }) {
     return (
         <html lang="es" className={`${inter.variable} ${outfit.variable}`}>
+            <head>
+                <Script
+                    id="json-ld-localbusiness"
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{
+                        __html: JSON.stringify({
+                            "@context": "https://schema.org",
+                            "@type": "HomeAndConstructionBusiness",
+                            "name": "Alicatados JR",
+                            "image": "https://alicatadosjr.com/images/logo_Jr.png",
+                            "url": "https://alicatadosjr.com",
+                            "telephone": "+34633238434",
+                            "address": {
+                                "@type": "PostalAddress",
+                                "addressLocality": "Elche",
+                                "addressRegion": "Alicante",
+                                "postalCode": "03201",
+                                "addressCountry": "ES"
+                            },
+                            "geo": {
+                                "@type": "GeoCoordinates",
+                                "latitude": 38.2669,
+                                "longitude": -0.6984
+                            },
+                            "areaServed": ["Elche", "Alicante", "Santa Pola", "Crevillente"]
+                        })
+                    }}
+                />
+            </head>
             <body className="font-sans antialiased bg-secondary">
                 {/* Google Tag Manager (noscript) */}
                 <noscript>

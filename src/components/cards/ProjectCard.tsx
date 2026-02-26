@@ -59,7 +59,7 @@ export default function ProjectCard({ title, category, imageSrc, href = '/proyec
     }
 
     return (
-        <div
+        <article
             className="perspective-container p-4"
             style={{ perspective: '1000px' }}
         >
@@ -99,6 +99,6 @@ export default function ProjectCard({ title, category, imageSrc, href = '/proyec
                     </div>
                 </div>
             </a>
-        </div>
+        </article>
     )
 }
